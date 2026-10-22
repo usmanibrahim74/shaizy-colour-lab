@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Compare colour palettes for the Shaizy Consultant logo on website, social, banner and print mockups.">
+<meta property="og:title" content="Shaizy Logo Colour Lab">
+<meta property="og:description" content="Compare colour palettes for the Shaizy Consultant logo on website, social, banner and print mockups.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Shaizy Logo Colour Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap">
+<style>
+/* Layout: sticky palette rail on the left, stacked brand mockups on the right; rail stacks on top at phone width. */
+:root{
+  --bg:#F2F4F7; --panel:#FFFFFF; --fg:#152130; --muted:#5A6777; --line:#DAE0E8; --focus:#2F7FD0; --sel:#152130;
+  --f-display:"Sora", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Figtree", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D131A; --panel:#151D27; --fg:#E5EBF1; --muted:#95A3B3; --line:#26313E; --focus:#6AB0F0; --sel:#E5EBF1; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D131A; --panel:#151D27; --fg:#E5EBF1; --muted:#95A3B3; --line:#26313E; --focus:#6AB0F0; --sel:#E5EBF1; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1440px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:28px 56px}
+header.top{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:end;justify-content:space-between;margin-bottom:24px}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.01em;margin:0;text-wrap:balance}
+.lede{margin:6px 0 0;color:var(--muted);max-width:62ch}
+.layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:980px){.layout{grid-template-columns:minmax(0,1fr)}}
+
+/* rail */
+.rail{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 16px);display:flex;flex-direction:column;gap:16px;max-height:calc(100vh - 32px);overflow:auto;padding-right:4px}
+@media (max-width:980px){.rail{position:static;max-height:none;overflow:visible;padding-right:0}}
+.label{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0}
+.pals{display:grid;gap:10px}
+@media (max-width:980px) and (min-width:560px){.pals{grid-template-columns:1fr 1fr}}
+.pal{display:grid;gap:8px;text-align:left;font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;cursor:pointer;transition:border-color .15s, box-shadow .15s}
+.pal:hover{border-color:var(--muted)}
+.pal:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.pal[aria-pressed="true"]{border-color:var(--sel);box-shadow:0 0 0 1px var(--sel)}
+.pal-head{display:flex;align-items:center;gap:8px}
+.pal-name{font-weight:600;font-size:14px;flex:1;min-width:0}
+.badge{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge.rec{border-color:currentColor;color:#1E8A55}
+:root[data-theme="dark"] .badge.rec{color:#55C98D}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .badge.rec{color:#55C98D}}
+.pal-strip{display:grid;grid-template-columns:1fr 1fr;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.pal-strip > div{padding:8px 10px;display:flex;align-items:center;justify-content:center;min-height:44px}
+.pal-strip svg{width:100%;height:auto;max-height:28px;display:block}
+.pal-why{font-size:13px;color:var(--muted);margin:0;line-height:1.45}
+.sw{display:inline-flex;gap:4px;align-items:center}
+.sw i{width:14px;height:14px;border-radius:50%;display:inline-block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+
+.custom{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:10px}
+.custom-row{display:flex;gap:12px;flex-wrap:wrap}
+.custom label{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500}
+.custom input[type=color]{width:38px;height:30px;padding:0;border:1px solid var(--line);border-radius:6px;background:none;cursor:pointer}
+.custom input[type=text]{width:84px;font:inherit;font-size:13px;font-family:ui-monospace,Menlo,monospace;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+
+.guide{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.guide ul{margin:8px 0 0;padding-left:18px;display:grid;gap:6px;font-size:13.5px}
+.guide b{font-weight:600}
+
+/* main */
+main{display:flex;flex-direction:column;gap:36px;min-width:0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;margin-bottom:12px}
+.sec-head h2{font-family:var(--f-display);font-size:18px;font-weight:600;margin:0}
+.sec-head p{margin:0;color:var(--muted);font-size:13.5px}
+.current{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.current h2{font-family:var(--f-display);font-size:17px;font-weight:600;margin:0;flex:1 1 220px}
+.hexes{display:flex;flex-wrap:wrap;gap:8px}
+.hex{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12.5px;font-family:ui-monospace,Menlo,monospace;padding:4px 8px 4px 5px;border:1px solid var(--line);border-radius:99px;background:var(--bg);color:var(--fg);cursor:pointer}
+.hex i{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.hex small{font-family:var(--f-body);color:var(--muted);font-size:11.5px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:7px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.btn:hover{border-color:var(--muted)}
+.btn:focus-visible,.hex:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+.cap{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+
+/* shared mockup bits */
+.stage{--p:#01487E;--a:#439BD5;--w:#439BD5;--t:#01487E;--wd:#5AB0E8;--tint:#EEF5FB;--deep:#013258;--ink:#14202E;--on-a:#FFFFFF;--d-bg:#06121D;--d-hero:#0A1D2E;--d-card:#0E2337;--d-foot:#030A11}
+.lg svg{display:block;width:100%;height:auto}
+.frame{border-radius:10px;overflow:hidden;box-shadow:0 1px 2px rgba(10,20,30,.08),0 8px 24px -8px rgba(10,20,30,.18);container-type:inline-size;max-width:100%}
+
+/* website */
+.browser{background:#fff}
+.bbar{display:flex;align-items:center;gap:10px;background:#E9ECF0;padding:8px 12px}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:#C9CFD7}
+.tab{display:flex;align-items:center;gap:6px;background:#fff;border-radius:6px 6px 0 0;padding:4px 10px;font-size:12px;color:#334;margin-bottom:-8px;padding-bottom:10px}
+.tab .lg{width:14px}
+.url{flex:1;min-width:0;background:#fff;border-radius:6px;padding:3px 10px;font-size:12px;color:#556;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site{--s-bg:#FFFFFF;--s-ink:var(--ink);--s-muted:#4A5766;--s-soft:#5B6776;--s-line:#E6EAEF;--s-nav:#3A4756;--s-hero:var(--tint);--s-head:var(--p);--s-em:var(--a);--s-eye:var(--t);--s-cta:var(--p);--s-cta-ink:#FFFFFF;--s-ic-bg:var(--tint);--s-ic:var(--p);--s-link:var(--w);--s-foot:var(--deep);--s-card:#FFFFFF;--s-sec-bg:#FFFFFF;--s-sec:var(--p);
+  background:var(--s-bg);color:var(--s-ink);font-family:var(--f-body)}
+.browser.dark{background:var(--d-bg)}
+.browser.dark .site{--s-bg:var(--d-bg);--s-ink:#E8EEF4;--s-muted:#B4C0CC;--s-soft:#9DAAB8;--s-line:rgba(255,255,255,.1);--s-nav:#C9D3DD;--s-hero:var(--d-hero);--s-head:#FFFFFF;--s-em:var(--wd);--s-eye:var(--wd);--s-cta:var(--a);--s-cta-ink:var(--on-a);--s-ic-bg:rgba(255,255,255,.07);--s-ic:var(--wd);--s-link:var(--wd);--s-foot:var(--d-foot);--s-card:var(--d-card);--s-sec-bg:transparent;--s-sec:#FFFFFF}
+.browser.dark .bbar{background:#20262E}
+.browser.dark .tab,.browser.dark .url{background:#2E353F;color:#C9D1DA}
+.browser.dark .dots i{background:#4A525D}
+.site-wrap{display:grid;gap:20px}
+.site-wrap.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:1100px){.site-wrap.two{grid-template-columns:minmax(0,1fr)}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.seg-b{font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.seg-b[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.seg-b:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.pals .label{grid-column:1/-1;margin-top:8px}
+.s-nav{display:flex;align-items:center;gap:20px;padding:14px 28px;border-bottom:1px solid var(--s-line)}
+.s-nav .lg{width:170px;flex:none}
+.s-links{display:flex;gap:18px;font-size:14px;font-weight:500;color:var(--s-nav);flex:1;justify-content:center}
+.s-links span:first-child{color:var(--s-head);font-weight:600}
+.s-cta{background:var(--s-cta);color:var(--s-cta-ink);font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:8px;white-space:nowrap}
+.s-hero{background:var(--s-hero);display:grid;grid-template-columns:1.15fr .85fr;gap:32px;padding:48px 28px;align-items:center;position:relative;overflow:hidden}
+.s-eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--s-eye)}
+.s-hero h3{font-family:var(--f-display);font-size:clamp(26px,4cqw,42px);line-height:1.12;font-weight:700;letter-spacing:-.02em;margin:10px 0 14px;color:var(--s-head);text-wrap:balance}
+.s-hero h3 em{font-style:normal;color:var(--s-em)}
+.s-hero p{margin:0 0 22px;color:var(--s-muted);max-width:46ch}
+.s-btns{display:flex;gap:10px;flex-wrap:wrap}
+.b-pri{background:var(--a);color:var(--on-a);font-weight:700;font-size:14px;padding:11px 18px;border-radius:9px}
+.b-sec{border:1.5px solid var(--s-sec);color:var(--s-sec);font-weight:600;font-size:14px;padding:10px 16px;border-radius:9px;background:var(--s-sec-bg)}
+.arc{position:absolute;right:-20px;top:10px;width:60%;height:auto;opacity:.55;pointer-events:none}
+/* boarding-pass style card */
+.pass{position:relative;background:var(--s-card);border-radius:14px;box-shadow:0 10px 30px -12px rgba(10,30,60,.35);overflow:hidden;font-size:13px}
+.pass-top{background:var(--p);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pass-top .lg{width:110px}
+.pass-top span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.pass-body{padding:16px 18px;display:grid;grid-template-columns:1fr auto 1fr;gap:6px 10px;align-items:center}
+.pass-body .code{font-family:var(--f-display);font-size:30px;font-weight:700;color:var(--s-head);line-height:1}
+.pass-body .city{font-size:11.5px;color:var(--s-soft)}
+.pass-body .plane{color:var(--a);font-size:18px;text-align:center}
+.pass-body .r{text-align:right}
+.pass-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 18px 16px;border-top:2px dashed var(--s-line)}
+.pass-meta small{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--s-soft)}
+.pass-meta b{font-size:13.5px;color:var(--s-ink)}
+.stamp{display:inline-block;margin-top:2px;transform:rotate(-8deg);border:2px solid var(--s-em);color:var(--s-em);font-family:var(--f-display);font-weight:700;font-size:11px;letter-spacing:.1em;padding:2px 7px;border-radius:6px;opacity:.9}
+.s-serv{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:28px}
+.card{background:var(--s-card);border:1px solid var(--s-line);border-radius:12px;padding:16px;display:grid;gap:8px;align-content:start}
+.ic{width:38px;height:38px;border-radius:10px;background:var(--s-ic-bg);display:grid;place-items:center;color:var(--s-ic)}
+.ic svg{width:20px;height:20px}
+.card h4{margin:0;font-size:15px;font-family:var(--f-display);font-weight:600;color:var(--s-ink)}
+.card p{margin:0;font-size:13px;color:var(--s-soft)}
+.card a{font-size:13px;font-weight:700;color:var(--s-link);text-decoration:none}
+.s-foot{background:var(--s-foot);color:rgba(255,255,255,.78);padding:24px 28px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;font-size:13px}
+.s-foot .lg{width:180px}
+.s-foot nav{display:flex;gap:16px;flex-wrap:wrap}
+@container (max-width:720px){
+  .s-links{display:none}
+  .s-nav{justify-content:space-between}
+  .s-hero{grid-template-columns:1fr;padding:32px 20px}
+  .s-serv{grid-template-columns:1fr 1fr;padding:20px}
+  .s-nav,.s-foot{padding-left:20px;padding-right:20px}
+}
+@container (max-width:420px){.s-serv{grid-template-columns:1fr}.s-nav .lg{width:130px}.s-cta{font-size:12px;padding:7px 10px}}
+
+/* facebook cover 820x312 */
+.cover{aspect-ratio:820/312;background:var(--p);position:relative;overflow:hidden;color:#fff;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:0 5cqw;gap:4cqw}
+.cover .band{position:absolute;right:-10cqw;top:0;bottom:0;width:62cqw;background:var(--deep);transform:skewX(-14deg)}
+.cover .band2{position:absolute;right:53cqw;top:0;bottom:0;width:1.1cqw;background:var(--a);transform:skewX(-14deg)}
+.cover .lg{position:relative;width:38cqw}
+.cover .copy{position:relative;display:grid;gap:1.4cqw;justify-items:start}
+.cover .copy b{font-family:var(--f-display);font-size:3.4cqw;line-height:1.15;font-weight:700;letter-spacing:-.01em}
+.cover .copy b em{font-style:normal;color:var(--wd)}
+.cover .pill{font-size:1.75cqw;font-weight:700;background:var(--a);color:var(--on-a);padding:.8cqw 1.8cqw;border-radius:99px}
+.cover .dest{font-size:1.55cqw;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.cover .arc{width:70cqw;right:auto;left:20cqw;top:-2cqw;opacity:.35}
+.profile{position:absolute;left:3cqw;bottom:-0.5cqw;width:13cqw;aspect-ratio:1;border-radius:50%;background:#fff;border:.7cqw solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.25);display:grid;place-items:center;padding:1.3cqw}
+.profile .lg{width:100%}
+.cover-wrap{position:relative}
+
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+@media (max-width:1180px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.grid3{grid-template-columns:minmax(0,1fr)}}
+
+/* instagram post */
+.post{aspect-ratio:1;background:var(--p);color:#fff;position:relative;overflow:hidden;padding:7cqw;display:flex;flex-direction:column;justify-content:space-between}
+.post .lg{width:46cqw;position:relative}
+.post .ring{position:absolute;right:-22cqw;top:-26cqw;width:70cqw;aspect-ratio:1;border-radius:50%;border:9cqw solid var(--a);opacity:.9}
+.post .big{position:relative;font-family:var(--f-display);font-weight:700;font-size:11cqw;line-height:1.02;letter-spacing:-.02em}
+.post .big em{font-style:normal;color:var(--wd)}
+.post .sub{position:relative;font-size:4.2cqw;opacity:.85;margin-top:3cqw}
+.post .foot{position:relative;display:flex;justify-content:space-between;align-items:center;font-size:3.6cqw;font-weight:600}
+.post .foot span:last-child{background:#fff;color:var(--p);padding:1.8cqw 3.6cqw;border-radius:99px}
+
+/* roll-up banner 85 x 200 cm */
+.rollup-wrap{display:flex;justify-content:center;background:linear-gradient(#E9EDF2,#DDE3EA);border-radius:10px;padding:18px 0 0}
+.rollup-in{width:62%}
+.rollup{width:100%;aspect-ratio:85/200;background:#fff;display:flex;flex-direction:column;box-shadow:0 10px 26px -10px rgba(10,20,30,.35);container-type:inline-size;position:relative}
+.rollup-base{height:12px;background:#9AA4B0;border-radius:3px 3px 0 0;width:72%;margin:0 auto}
+.ru-top{padding:12cqw 9cqw 6cqw}
+.ru-top .lg{width:100%}
+.ru-mid{flex:1;padding:4cqw 9cqw;display:flex;flex-direction:column;gap:5cqw}
+.ru-mid h5{margin:0;font-family:var(--f-display);font-size:10cqw;line-height:1.05;font-weight:700;color:var(--p);letter-spacing:-.02em}
+.ru-mid h5 em{font-style:normal;color:var(--a)}
+.ru-list{display:grid;gap:3.2cqw;margin:0;padding:0;list-style:none}
+.ru-list li{display:flex;align-items:center;gap:3cqw;font-size:5.6cqw;font-weight:600;color:var(--ink)}
+.ru-list i{width:6.5cqw;height:6.5cqw;border-radius:50%;background:var(--a);flex:none;display:grid;place-items:center}
+.ru-list i::after{content:"";width:2.2cqw;height:1.2cqw;border-left:.8cqw solid #fff;border-bottom:.8cqw solid #fff;transform:rotate(-45deg) translate(.2cqw,-.2cqw)}
+.ru-chips{display:flex;flex-wrap:wrap;gap:2cqw}
+.ru-chips span{font-size:4.2cqw;font-weight:700;color:var(--p);background:var(--tint);padding:1.5cqw 3.4cqw;border-radius:99px}
+.ru-bot{background:var(--p);color:#fff;padding:7cqw 9cqw 9cqw;display:grid;gap:2cqw;position:relative;overflow:hidden}
+.ru-bot::before{content:"";position:absolute;left:0;right:0;top:0;height:2cqw;background:var(--a)}
+.ru-bot small{font-size:4cqw;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.ru-bot b{font-family:var(--f-display);font-size:8cqw;font-weight:700}
+.ru-bot span{font-size:4.6cqw;opacity:.9}
+
+/* business card + icons */
+.stack-col{display:grid;gap:18px}
+.bcard{aspect-ratio:3.5/2;border-radius:8px;container-type:inline-size;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(10,20,30,.08),0 8px 22px -10px rgba(10,20,30,.3)}
+.bc-front{background:var(--p);display:grid;place-items:center}
+.bc-front .lg{width:58cqw}
+.bc-front::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3cqw;background:var(--a)}
+.bc-back{background:#fff;display:grid;grid-template-columns:1fr auto;align-items:end;padding:8cqw;color:var(--ink)}
+.bc-back .who b{display:block;font-family:var(--f-display);font-size:6cqw;color:var(--p);font-weight:700}
+.bc-back .who span{display:block;font-size:4cqw;color:var(--t);font-weight:600;letter-spacing:.04em}
+.bc-back .who p{margin:4cqw 0 0;font-size:3.6cqw;line-height:1.55;color:#4A5766}
+.bc-back .lg{width:22cqw;align-self:start}
+.icons{display:flex;flex-wrap:wrap;gap:18px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.icon-item{display:grid;justify-items:center;gap:6px;font-size:11.5px;color:var(--muted)}
+.app{width:64px;height:64px;border-radius:15px;background:var(--p);display:grid;place-items:center;padding:9px;box-shadow:0 4px 10px -4px rgba(0,0,0,.35)}
+.avatar{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;padding:7px;box-shadow:0 0 0 1px #DDE2E8}
+.fav{width:32px;height:32px;display:grid;place-items:center;background:#fff;border-radius:6px;box-shadow:0 0 0 1px #DDE2E8;padding:4px}
+.app .lg,.avatar .lg,.fav .lg{width:100%}
+
+/* logo set */
+.logoset{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.ls{border-radius:10px;display:grid;place-items:center;padding:28px 24px;min-height:140px;border:1px solid var(--line)}
+.ls .lg{width:min(100%,280px)}
+.ls.sq .lg{width:110px}
+.ls-cap{font-size:12.5px;color:var(--muted);margin-top:6px}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Shaizy logo colour lab</h1>
+      <p class="lede">Pick one of 15 palettes on the left, or mix your own. Every mockup on the right repaints with it: website, Facebook cover, Instagram post, roll-up banner, business card and app icon. The website can switch between light and dark mode.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="rail" aria-label="Colour palettes">
+      <p class="label">Palettes for visa &amp; immigration brands</p>
+      <div class="pals" id="pals"></div>
+
+      <div class="custom" id="customBox">
+        <p class="label">Try your own colours</p>
+        <div class="custom-row">
+          <label for="cp">Main <input type="color" id="cp" value="#01487E"><input type="text" id="cpt" value="#01487E" aria-label="Main colour hex" maxlength="7"></label>
+          <label for="ca">Accent <input type="color" id="ca" value="#439BD5"><input type="text" id="cat" value="#439BD5" aria-label="Accent colour hex" maxlength="7"></label>
+        </div>
+        <button class="btn" id="useCustom" type="button">Preview my colours</button>
+      </div>
+
+      <div class="guide">
+        <p class="label">What works for a visa consultancy</p>
+        <ul>
+          <li><b>Lead with a deep, steady colour.</b> Navy, deep teal or burgundy reads as official and trustworthy, like embassies, passports and banks. People are handing you passports and fees, so trust comes first.</li>
+          <li><b>Let the accent carry the promise.</b> Sky blue means travel, gold means premium, green means approved.</li>
+          <li><b>Use the accent sparingly.</b> Keep it to buttons, highlights and one stripe, about 10% of a layout.</li>
+          <li><b>Avoid red as the main colour.</b> It reads as refusal or warning. Also skip neon and pastels, which feel unserious for legal paperwork.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="stage" id="stage">
+      <div class="current">
+        <h2 id="curName">Current navy &amp; sky</h2>
+        <div class="hexes" id="hexes"></div>
+        <div class="btns">
+          <button class="btn" type="button" data-copy="light">Copy logo SVG (light)</button>
+          <button class="btn" type="button" data-copy="dark">Copy logo SVG (dark)</button>
+        </div>
+      </div>
+
+      <section>
+        <div class="sec-head"><h2>Website</h2><div class="seg" role="group" aria-label="Website theme"><button type="button" class="seg-b" id="siteLight" data-site="light" aria-pressed="true">Light</button><button type="button" class="seg-b" id="siteDark" data-site="dark" aria-pressed="false">Dark</button><button type="button" class="seg-b" id="siteBoth" data-site="both" aria-pressed="false">Side by side</button></div></div>
+        <div class="site-wrap" id="siteWrap">
+        <div class="frame browser" id="siteMain">
+          <div class="bbar">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="tab"><div class="lg" data-v="light" data-k="mark"></div>Shaizy Consultant</div>
+            <div class="url">shaizyconsultant.com</div>
+          </div>
+          <div class="site">
+            <div class="s-nav">
+              <div class="lg" data-v="light" data-k="full"></div>
+              <div class="s-links"><span>Home</span><span>Study visa</span><span>Visit visa</span><span>Work permit</span><span>Immigration</span><span>Contact</span></div>
+              <div class="s-cta">Free assessment</div>
+            </div>
+            <div class="s-hero">
+              <svg class="arc" viewBox="0 0 400 200" fill="none" aria-hidden="true"><path d="M10 190 C 120 20, 300 10, 390 60" stroke="var(--a)" stroke-width="2" stroke-dasharray="6 8"/></svg>
+              <div style="position:relative">
+                <div class="s-eyebrow">UK · Canada · Australia · Schengen</div>
+                <h3>Study, work or visit abroad. <em>We handle the visa.</em></h3>
+                <p>Document checks, application forms, appointment booking and interview preparation, done by consultants who file these every week.</p>
+                <div class="s-btns"><span class="b-pri">Book a free consultation</span><span class="b-sec">Check eligibility</span></div>
+              </div>
+              <div class="pass" aria-label="Example visa file card">
+                <div class="pass-top"><div class="lg" data-v="dark" data-k="full"></div><span>Visa file</span></div>
+                <div class="pass-body">
+                  <div><div class="code">LHE</div><div class="city">Lahore</div></div>
+                  <div class="plane">✈</div>
+                  <div class="r"><div class="code">LHR</div><div class="city">London</div></div>
+                </div>
+                <div class="pass-meta">
+                  <div><small>Visa</small><b>Student</b></div>
+                  <div><small>Intake</small><b>Sep 2027</b></div>
+                  <div><small>Status</small><span class="stamp">APPROVED</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="s-serv">
+              <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div><h4>Study visa</h4><p>University offers, CAS and student visa files.</p><a>Learn more →</a></div>
+              <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16l20-6-2-3-6 2-6-5-2 1 4 5-5 2-2-2-2 1z"/><path d="M3 20h18"/></svg></div><h4>Visit visa</h4><p>Tourist, family and business visits.</p><a>Learn more →</a></div>
+              <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><h4>Work permit</h4><p>Skilled worker and employer-sponsored routes.</p><a>Learn more →</a></div>
+              <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><h4>Immigration</h4><p>Permanent residence and family settlement.</p><a>Learn more →</a></div>
+            </div>
+            <div class="s-foot">
+              <div class="lg" data-v="dark" data-k="full"></div>
+              <nav><span>About</span><span>Services</span><span>Success stories</span><span>Contact</span></nav>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head"><h2>Facebook cover</h2><p>820 × 312 px, with the round profile photo overlapping</p></div>
+        <div class="cover-wrap frame">
+          <div class="cover">
+            <div class="band"></div><div class="band2"></div>
+            <svg class="arc" viewBox="0 0 400 200" fill="none" aria-hidden="true"><path d="M10 190 C 120 20, 300 10, 390 60" stroke="#fff" stroke-width="1.5" stroke-dasharray="5 8"/></svg>
+            <div class="lg" data-v="dark" data-k="full"></div>
+            <div class="copy">
+              <span class="dest">Study · Work · Visit · Immigration</span>
+              <b>Your visa file, <em>done right the first time.</em></b>
+              <span class="pill">Free consultation · 000 000 0000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head"><h2>Print &amp; social</h2><p>Instagram post, roll-up banner, business card and icons</p></div>
+        <div class="grid3">
+          <div>
+            <div class="frame"><div class="post">
+              <div class="ring"></div>
+              <div class="lg" data-v="dark" data-k="full"></div>
+              <div>
+                <div class="big">UK student visa<br><em>Sep 2027 intake</em></div>
+                <div class="sub">Applications open now. Get your file checked for free.</div>
+              </div>
+              <div class="foot"><span>shaizyconsultant.com</span><span>DM to apply</span></div>
+            </div></div>
+            <p class="cap">Instagram post, 1080 × 1080 px</p>
+          </div>
+          <div>
+            <div class="rollup-wrap">
+              <div class="rollup-in">
+                <div class="rollup">
+                  <div class="ru-top"><div class="lg" data-v="light" data-k="full"></div></div>
+                  <div class="ru-mid">
+                    <h5>Your gateway to <em>study &amp; work abroad</em></h5>
+                    <ul class="ru-list"><li><i></i>Study visas</li><li><i></i>Visit &amp; family visas</li><li><i></i>Work permits</li><li><i></i>Immigration &amp; PR</li></ul>
+                    <div class="ru-chips"><span>UK</span><span>Canada</span><span>Australia</span><span>USA</span><span>Schengen</span></div>
+                  </div>
+                  <div class="ru-bot"><small>Free consultation</small><b>000 000 0000</b><span>shaizyconsultant.com</span></div>
+                </div>
+                <div class="rollup-base"></div>
+              </div>
+            </div>
+            <p class="cap">Roll-up banner, 85 × 200 cm</p>
+          </div>
+          <div class="stack-col">
+            <div>
+              <div class="bcard bc-front"><div class="lg" data-v="dark" data-k="stack"></div></div>
+            </div>
+            <div>
+              <div class="bcard bc-back">
+                <div class="who"><b>Your Name</b><span>Senior Visa Consultant</span><p>000 000 0000<br>info@shaizyconsultant.com<br>Office address, City</p></div>
+                <div class="lg" data-v="light" data-k="mark"></div>
+              </div>
+              <p class="cap">Business card front and back, 3.5 × 2 in</p>
+            </div>
+            <div class="icons">
+              <div class="icon-item"><div class="app"><div class="lg" data-v="dark" data-k="mark"></div></div>App icon</div>
+              <div class="icon-item"><div class="avatar"><div class="lg" data-v="light" data-k="mark"></div></div>Profile photo</div>
+              <div class="icon-item"><div class="fav"><div class="lg" data-v="light" data-k="mark"></div></div>Favicon</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head"><h2>Logo set</h2><p>The versions you would hand to a printer or web developer</p></div>
+        <div class="logoset" id="logoset">
+          <div><div class="ls" style="background:#fff"><div class="lg" data-v="light" data-k="full"></div></div><div class="ls-cap">Main logo, on white</div></div>
+          <div><div class="ls" style="background:var(--p)"><div class="lg" data-v="dark" data-k="full"></div></div><div class="ls-cap">Reversed, on the main colour</div></div>
+          <div><div class="ls" style="background:var(--deep)"><div class="lg" data-v="dark" data-k="full"></div></div><div class="ls-cap">Reversed, on a darker shade</div></div>
+          <div><div class="ls" style="background:var(--tint)"><div class="lg" data-v="light" data-k="stack"></div></div><div class="ls-cap">Stacked, on the light tint</div></div>
+          <div><div class="ls sq" style="background:#fff"><div class="lg" data-v="light" data-k="mark"></div></div><div class="ls-cap">Icon only</div></div>
+          <div><div class="ls sq" style="background:var(--p)"><div class="lg" data-v="dark" data-k="mark"></div></div><div class="ls-cap">Icon only, reversed</div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const PATHS = [{"d":"M142.355 93.5672L133.132 93.6045C116.002 93.6739 98.8727 93.7432 81.743 93.7992C76.4699 93.8163 72.9519 91.3687 71.5407 86.8227C69.9004 81.5386 73.7074 75.5715 79.2915 74.7276C80.4315 74.5552 81.5956 74.4686 82.7488 74.4676C98.8318 74.454 114.915 74.4457 130.998 74.4373C148.716 74.428 166.435 74.4187 184.154 74.4025C186.626 74.4001 189.099 74.3589 191.571 74.3177C193.739 74.2816 195.908 74.2454 198.077 74.2354C198.933 74.2315 199.347 73.8797 199.719 73.1776C201.854 69.1495 203.998 65.1263 206.143 61.1033C206.184 61.0266 206.225 60.95 206.266 60.8733C207.304 58.9256 208.342 56.9779 209.379 55.0295C210.102 53.6718 210.824 52.3138 211.545 50.9553C212.452 49.2466 213.335 47.5251 214.263 45.7175L214.74 44.7861C231.579 65.5529 241.667 92.0152 241.667 120.834C241.667 127.707 241.094 134.445 239.991 141.005C239.058 137.769 236.666 135.881 233.697 134.506C228.322 132.017 222.583 132.253 216.884 132.497C214.252 132.61 211.624 132.822 208.996 133.034C207.278 133.172 205.56 133.311 203.84 133.422C203.373 133.452 202.771 133.229 202.42 132.913C200.136 130.855 197.86 128.782 195.662 126.633C191.459 122.522 187.271 118.397 183.083 114.271C180.405 111.633 177.727 108.994 175.045 106.36C173.44 104.783 171.827 103.214 170.214 101.644L170.185 101.615C168.227 99.7091 166.269 97.8034 164.324 95.8845C162.657 94.2394 160.776 93.2972 158.355 93.4457C158.202 93.4551 158.049 93.4634 157.896 93.4708C156.6 93.5336 155.3 93.5299 154 93.5262C153.998 93.5262 153.996 93.5262 153.994 93.5262C153.35 93.5243 152.707 93.5225 152.064 93.5287L142.355 93.5672ZM239.256 144.975C228.935 195.874 186.622 235.161 134.216 240.935C133.448 241.002 132.679 241.06 131.909 241.11C126.997 241.428 122.06 241.724 117.145 241.612C78.4748 240.452 44.3708 221.124 23.0771 191.871C27.5731 191.855 32.0691 191.84 36.5651 191.825C40.69 191.811 44.8148 191.797 48.9397 191.784L58.2712 191.754C61.205 191.744 64.1389 191.732 67.0728 191.72L67.5618 191.718C73.9298 191.693 80.2978 191.667 86.6658 191.661C105.328 191.643 123.99 191.645 142.652 191.649C143.708 191.649 144.763 191.669 145.819 191.689L145.838 191.69C146.962 191.711 148.086 191.732 149.211 191.73C149.455 191.729 149.698 191.66 149.963 191.586L149.966 191.585C150.189 191.522 150.426 191.455 150.691 191.421C150.823 191.482 150.936 191.548 151.038 191.609L151.041 191.61C151.196 191.701 151.325 191.777 151.451 191.793C151.466 191.795 151.48 191.796 151.494 191.796C151.826 191.8 152.158 191.804 152.49 191.808C154.524 191.833 156.558 191.857 158.589 191.802C160.481 191.75 162.043 190.951 163.418 189.596C167.02 186.047 170.639 182.517 174.258 178.986L174.277 178.967C177.868 175.463 181.459 171.96 185.032 168.439C190.66 162.895 196.235 157.297 201.796 151.685C202.611 150.862 203.412 150.447 204.599 150.555C206.265 150.706 207.935 150.808 209.605 150.91C210.691 150.977 211.778 151.043 212.864 151.123C219.341 151.6 225.778 151.653 232.031 149.493C234.671 148.58 237.199 147.485 239.027 145.258C239.105 145.163 239.181 145.069 239.256 144.975Z","r":"mB","e":true},{"d":"M152.096 93.6209C153.087 93.5667 154.087 93.5536 155.091 93.5405H155.094C156.027 93.5282 156.962 93.5159 157.896 93.4704C158.049 93.4629 158.202 93.4547 158.354 93.4453C160.775 93.2968 162.656 94.2389 164.323 95.884C166.269 97.8036 168.228 99.7099 170.186 101.616L170.216 101.645C171.828 103.214 173.439 104.783 175.044 106.359C177.721 108.988 180.394 111.622 183.066 114.255C187.26 118.386 191.453 122.516 195.662 126.632C197.86 128.782 200.135 130.854 202.42 132.913C202.77 133.229 203.372 133.451 203.839 133.421C205.559 133.31 207.277 133.172 208.995 133.033C211.623 132.822 214.252 132.61 216.884 132.497C222.582 132.252 228.321 132.016 233.696 134.506C236.665 135.881 239.058 137.768 239.991 141.004C239.767 142.335 239.522 143.658 239.255 144.974C239.18 145.069 239.104 145.163 239.027 145.257C237.198 147.485 234.671 148.58 232.031 149.492C225.777 151.653 219.341 151.599 212.863 151.122C211.778 151.043 210.691 150.976 209.604 150.91C207.934 150.808 206.264 150.706 204.598 150.554C203.411 150.447 202.611 150.862 201.795 151.685C196.235 157.297 190.659 162.894 185.032 168.439C181.472 171.947 177.894 175.437 174.317 178.927L174.257 178.985C170.638 182.516 167.019 186.047 163.417 189.596C162.043 190.95 160.481 191.75 158.588 191.801C156.225 191.866 153.859 191.822 151.494 191.795C151.479 191.795 151.465 191.794 151.451 191.793C151.376 191.783 151.301 191.753 151.224 191.708C151.117 191.645 151.005 191.555 150.885 191.458L150.877 191.452C150.843 191.425 150.808 191.396 150.772 191.368C154.736 183.948 158.688 176.595 162.783 169.323C165.17 165.084 167.636 160.89 170.101 156.695L170.116 156.67L170.126 156.652C171.248 154.743 172.371 152.834 173.486 150.92C173.619 150.692 173.744 150.459 173.881 150.207C173.948 150.083 174.017 149.955 174.091 149.82C173.853 149.721 173.704 149.61 173.548 149.601C171.183 149.477 168.817 149.359 166.452 149.24C161.331 148.983 156.21 148.725 151.092 148.416C148.805 148.278 146.905 148.831 145.239 150.426C143.991 151.621 142.722 152.792 141.452 153.964C139.638 155.638 137.824 157.313 136.074 159.053C134.298 160.819 132.369 161.696 129.859 161.382C129.128 161.291 128.382 161.312 127.543 161.335C127.133 161.347 126.699 161.359 126.235 161.359L130.967 152.349C130.793 152.334 130.637 152.319 130.494 152.304C130.183 152.273 129.93 152.246 129.677 152.246C123.39 152.243 117.104 152.24 110.818 152.237C87.0525 152.227 63.2872 152.216 39.5219 152.18C38.5438 152.179 38.096 152.611 37.6255 153.316C31.7134 162.176 25.7907 171.028 19.8679 179.881L17.4743 183.458C6.38522 165.196 0 143.76 0 120.833C0 54.0989 54.099 0 120.833 0C155.047 0 185.94 14.2201 207.924 37.0723C199.119 37.0774 190.314 37.0821 181.509 37.0868L180.069 37.0876C157.501 37.0999 134.933 37.1122 112.364 37.1304C109.155 37.133 105.946 37.1151 102.736 37.0971C94.8244 37.0528 86.9127 37.0084 79.0114 37.2717C64.9356 37.7407 53.2792 43.6356 44.1649 54.3847C38.7294 60.7954 35.3059 68.2324 34.0817 76.5283C31.2425 95.7692 38.1174 113.818 55.5134 124.812C63.1486 129.638 71.5047 131.928 80.5299 131.942C91.7148 131.959 102.9 132.002 114.084 132.046C119.331 132.066 124.578 132.086 129.825 132.104C130.018 132.105 130.211 132.09 130.466 132.071C130.607 132.06 130.77 132.048 130.96 132.036L126.361 122.35C126.567 122.35 126.772 122.35 126.974 122.348C127.4 122.344 127.818 122.338 128.228 122.332H128.235C129.705 122.31 131.088 122.289 132.459 122.405C133.219 122.47 134.041 123.022 134.64 123.566C136.386 125.152 138.115 126.755 139.844 128.359L139.85 128.364C141.981 130.34 144.112 132.316 146.272 134.258C146.862 134.788 147.833 135.175 148.62 135.162C153.808 135.078 158.995 134.937 164.182 134.796C166.089 134.744 167.996 134.692 169.903 134.643C170.087 134.638 170.272 134.635 170.459 134.634C170.594 134.632 170.73 134.632 170.869 134.632C171.51 134.631 172.202 134.64 173.043 134.64L172.924 134.406C165.912 120.685 159.02 107.199 152.096 93.6209Z","r":"mA","e":true},{"d":"M153.332 93.5723C152.919 93.5835 152.507 93.5989 152.096 93.6215C159.02 107.2 165.912 120.686 172.924 134.406L173.043 134.64C172.202 134.64 171.51 134.631 170.869 134.632C170.538 134.633 170.22 134.636 169.903 134.644C167.996 134.693 166.089 134.745 164.182 134.797C158.995 134.938 153.808 135.079 148.62 135.163C147.833 135.176 146.862 134.789 146.272 134.258C144.112 132.316 141.981 130.341 139.851 128.365L139.844 128.359C138.115 126.756 136.386 125.152 134.64 123.566C134.041 123.022 133.219 122.47 132.46 122.406C131.088 122.289 129.705 122.31 128.235 122.332H128.228H128.221C127.617 122.342 126.999 122.351 126.361 122.351L130.961 132.036C130.77 132.048 130.609 132.06 130.467 132.071C130.212 132.091 130.018 132.105 129.825 132.105C124.578 132.087 119.331 132.066 114.084 132.046C102.9 132.002 91.7149 131.959 80.53 131.942C71.5047 131.928 63.1487 129.638 55.5135 124.813C38.1174 113.819 31.2426 95.7697 34.0818 76.5288C35.3059 68.2329 38.7294 60.7959 44.165 54.3852C53.2793 43.6361 64.9357 37.7412 79.0115 37.2722C86.9127 37.0089 94.8245 37.0533 102.736 37.0976C105.946 37.1156 109.156 37.1335 112.365 37.1309C134.933 37.1127 157.501 37.1004 180.069 37.0881L181.509 37.0873C190.314 37.0826 199.119 37.0779 207.924 37.0728C210.303 39.5452 212.577 42.1187 214.74 44.7862L214.262 45.7175C213.335 47.5252 212.452 49.2467 211.544 50.9553C210.823 52.3138 210.101 53.6719 209.378 55.0295C208.341 56.978 207.303 58.9257 206.265 60.8733L206.142 61.1033C203.998 65.1264 201.853 69.1495 199.718 73.1777C199.346 73.8798 198.933 74.2316 198.076 74.2355C195.907 74.2454 193.739 74.2817 191.57 74.3178C189.098 74.359 186.625 74.4002 184.153 74.4025C166.434 74.4188 148.716 74.4281 130.997 74.4373C114.914 74.4457 98.8312 74.4541 82.7482 74.4677C81.595 74.4686 80.4308 74.5552 79.2909 74.7276C73.7068 75.5716 69.8998 81.5386 71.5401 86.8228C72.9512 91.3687 76.4692 93.8164 81.7424 93.7992C98.8721 93.7432 116.002 93.6739 133.131 93.6046L142.355 93.5673L152.064 93.5287C152.706 93.5225 153.35 93.5244 153.993 93.5262H153.999C155.299 93.53 156.6 93.5337 157.896 93.4709C156.961 93.5164 156.024 93.5287 155.091 93.541C154.503 93.5487 153.916 93.5564 153.332 93.5723Z","r":"mk","e":false},{"d":"M36.5642 191.824C32.0681 191.839 27.5722 191.855 23.0762 191.871C21.0959 189.15 19.2263 186.344 17.4741 183.458L19.8677 179.881C25.7905 171.028 31.7132 162.175 37.6253 153.316C38.0958 152.611 38.5436 152.179 39.5217 152.18C63.2869 152.216 87.0523 152.227 110.818 152.237L118.58 152.241C122.279 152.242 125.978 152.244 129.677 152.246C129.93 152.246 130.183 152.273 130.494 152.304C130.637 152.319 130.793 152.334 130.966 152.349L126.234 161.359C126.698 161.359 127.13 161.347 127.539 161.335H127.543C128.382 161.312 129.127 161.291 129.859 161.382C132.369 161.696 134.298 160.819 136.074 159.053C137.823 157.313 139.638 155.638 141.452 153.964C142.722 152.792 143.991 151.621 145.239 150.426C146.905 148.831 148.805 148.278 151.092 148.416C156.209 148.725 161.33 148.983 166.452 149.24C168.817 149.359 171.183 149.477 173.548 149.601C173.703 149.61 173.853 149.721 174.091 149.82C174.017 149.955 173.947 150.083 173.881 150.207C173.798 150.359 173.72 150.504 173.641 150.646C173.59 150.738 173.538 150.83 173.485 150.92C172.37 152.834 171.248 154.743 170.126 156.652L170.116 156.67L170.11 156.679C167.642 160.879 165.173 165.079 162.783 169.323C158.688 176.595 154.736 183.948 150.772 191.368C150.8 191.39 150.826 191.411 150.853 191.432L150.877 191.452L150.885 191.458C151.092 191.625 151.272 191.77 151.451 191.793C151.324 191.777 151.195 191.701 151.04 191.61L151.037 191.608C150.935 191.548 150.822 191.481 150.69 191.42C150.529 191.441 150.378 191.474 150.235 191.511C150.142 191.535 150.052 191.56 149.965 191.584L149.962 191.585C149.697 191.66 149.454 191.729 149.21 191.729C148.085 191.732 146.961 191.711 145.837 191.689L145.818 191.689C144.763 191.669 143.707 191.649 142.651 191.648C123.989 191.645 105.327 191.642 86.6649 191.661C80.2969 191.667 73.9289 191.692 67.5609 191.718L67.0719 191.72C64.138 191.732 61.2041 191.743 58.2703 191.753L48.9388 191.783C44.8139 191.797 40.689 191.81 36.5642 191.824Z","r":"mk","e":true},{"d":"M824.55 75.3994L846.207 50.3311H880.62L836.417 95.1277L824.55 75.3994ZM798.592 154.164L805.415 105.363L773.523 50.3311H805.712L833.005 98.6877L825.292 154.164H798.592Z","r":"w","e":false},{"d":"M693.334 50.3311H771.951L715.584 133.398H752.519L749.701 154.164H671.084L727.451 71.0977H690.516L693.334 50.3311Z","r":"w","e":false},{"d":"M642.867 78.8111L646.872 50.3311H673.572L672.682 57.3027L642.867 78.8111ZM641.977 85.3377L671.644 63.8294L659.035 154.164H632.335L641.977 85.3377Z","r":"w","e":false},{"d":"M585.3 102.248L580.257 83.5577L559.193 119.751L622.383 88.3044L592.42 127.464L539.317 154.164H511.133L571.357 50.3311H599.54L610.517 90.0844L585.3 102.248ZM599.54 154.164L593.31 133.546L614.67 105.956L627.723 154.164H599.54Z","r":"w","e":false},{"d":"M488.902 82.8161L493.5 50.3311H520.2L516.937 74.0644L488.902 82.8161ZM417.999 50.3311H444.699L436.985 105.066L528.359 73.7677L485.194 109.813L433.87 127.316L430.162 154.164H403.462L417.999 50.3311ZM484.304 115.894L514.712 89.6394L505.664 154.164H478.964L484.304 115.894Z","r":"w","e":false},{"d":"M355.132 92.1611C362.746 92.1611 369.174 92.7544 374.415 93.9411C379.656 95.0288 383.859 96.6605 387.024 98.8361C390.287 100.913 392.611 103.533 393.995 106.698C395.38 109.862 396.072 113.472 396.072 117.526C396.072 121.976 395.38 126.426 393.995 130.876C392.71 135.227 390.732 139.133 388.062 142.594C385.491 146.055 382.277 148.874 378.42 151.049C374.663 153.126 370.311 154.164 365.367 154.164H294.167L308.852 133.398H357.802C361.56 133.398 364.279 132.31 365.96 130.134C367.74 127.959 368.828 125.487 369.224 122.718C369.718 119.257 368.482 116.784 365.515 115.301C362.549 113.719 358.099 112.928 352.165 112.928H338.37C327.394 112.928 319.384 110.752 314.34 106.401C309.297 101.951 306.775 95.6716 306.775 87.5627C306.775 83.3105 307.418 79.0088 308.704 74.6577C309.989 70.2077 311.868 66.2027 314.34 62.6427C316.813 58.9838 319.878 56.0172 323.537 53.7427C327.196 51.4683 331.399 50.3311 336.145 50.3311H403.192L388.507 71.0977H347.864C345.985 71.0977 344.205 71.3944 342.524 71.9877C340.941 72.5811 339.508 73.4216 338.222 74.5094C337.035 75.4983 336.046 76.6849 335.255 78.0694C334.464 79.3549 333.97 80.6899 333.772 82.0744C333.278 85.6344 334.514 88.2055 337.48 89.7877C340.447 91.3699 344.897 92.1611 350.83 92.1611H355.132Z","r":"w","e":false},{"d":"M828.48 207.103C828.161 207.103 827.891 207.008 827.668 206.817C827.477 206.594 827.381 206.323 827.381 206.005V177.919H818.21C817.892 177.919 817.621 177.824 817.398 177.633C817.207 177.41 817.112 177.139 817.112 176.821V174.815C817.112 174.465 817.207 174.194 817.398 174.003C817.621 173.78 817.892 173.668 818.21 173.668H841.233C841.583 173.668 841.854 173.78 842.045 174.003C842.268 174.194 842.379 174.465 842.379 174.815V176.821C842.379 177.139 842.268 177.41 842.045 177.633C841.854 177.824 841.583 177.919 841.233 177.919H832.11V206.005C832.11 206.323 831.998 206.594 831.775 206.817C831.584 207.008 831.314 207.103 830.963 207.103H828.48Z","r":"t","e":false},{"d":"M760.782 207.103C760.432 207.103 760.161 207.008 759.97 206.817C759.779 206.594 759.684 206.323 759.684 206.005V174.815C759.684 174.465 759.779 174.194 759.97 174.003C760.161 173.78 760.432 173.668 760.782 173.668H762.979C763.361 173.668 763.648 173.764 763.839 173.955C764.03 174.114 764.142 174.242 764.173 174.337L780.031 198.697V174.815C780.031 174.465 780.127 174.194 780.318 174.003C780.509 173.78 780.779 173.668 781.13 173.668H783.422C783.773 173.668 784.043 173.78 784.234 174.003C784.457 174.194 784.569 174.465 784.569 174.815V205.957C784.569 206.275 784.457 206.546 784.234 206.769C784.043 206.992 783.788 207.103 783.47 207.103H781.177C780.827 207.103 780.556 207.008 780.365 206.817C780.206 206.626 780.095 206.498 780.031 206.435L764.221 182.314V206.005C764.221 206.323 764.11 206.594 763.887 206.817C763.696 207.008 763.425 207.103 763.075 207.103H760.782Z","r":"t","e":false},{"d":"M698.215 207.103C697.96 207.103 697.737 207.008 697.546 206.817C697.355 206.626 697.26 206.403 697.26 206.148C697.26 205.989 697.276 205.814 697.308 205.623L709.153 174.719C709.28 174.401 709.456 174.146 709.678 173.955C709.901 173.764 710.236 173.668 710.681 173.668H713.929C714.343 173.668 714.662 173.764 714.885 173.955C715.139 174.146 715.33 174.401 715.458 174.719L727.256 205.623C727.319 205.814 727.351 205.989 727.351 206.148C727.351 206.403 727.256 206.626 727.064 206.817C726.873 207.008 726.651 207.103 726.396 207.103H723.96C723.578 207.103 723.291 207.008 723.1 206.817C722.941 206.626 722.829 206.45 722.766 206.291L720.139 199.509H704.472L701.845 206.291C701.813 206.45 701.702 206.626 701.511 206.817C701.32 207.008 701.033 207.103 700.651 207.103H698.215ZM705.857 195.401H718.754L712.305 178.445L705.857 195.401Z","r":"t","e":false},{"d":"M657.526 207.103C657.207 207.103 656.936 207.008 656.714 206.817C656.523 206.594 656.427 206.323 656.427 206.005V177.919H647.256C646.938 177.919 646.667 177.824 646.444 177.633C646.253 177.41 646.158 177.139 646.158 176.821V174.815C646.158 174.465 646.253 174.194 646.444 174.003C646.667 173.78 646.938 173.668 647.256 173.668H670.279C670.629 173.668 670.899 173.78 671.091 174.003C671.313 174.194 671.425 174.465 671.425 174.815V176.821C671.425 177.139 671.313 177.41 671.091 177.633C670.899 177.824 670.629 177.919 670.279 177.919H661.156V206.005C661.156 206.323 661.044 206.594 660.821 206.817C660.63 207.008 660.36 207.103 660.009 207.103H657.526Z","r":"t","e":false},{"d":"M601.769 207.103C601.419 207.103 601.148 207.008 600.957 206.817C600.766 206.594 600.67 206.323 600.67 206.005V174.767C600.67 174.449 600.766 174.194 600.957 174.003C601.148 173.78 601.419 173.668 601.769 173.668H604.3C604.619 173.668 604.874 173.78 605.065 174.003C605.256 174.194 605.351 174.449 605.351 174.767V202.948H621.257C621.607 202.948 621.878 203.059 622.069 203.282C622.26 203.473 622.355 203.744 622.355 204.094V206.005C622.355 206.323 622.26 206.594 622.069 206.817C621.878 207.008 621.607 207.103 621.257 207.103H601.769Z","r":"t","e":false},{"d":"M552.564 207.581C549.889 207.581 547.58 207.103 545.638 206.148C543.727 205.193 542.247 203.744 541.196 201.801C540.177 199.827 539.667 197.296 539.667 194.207V174.815C539.667 174.465 539.763 174.194 539.954 174.003C540.145 173.78 540.416 173.668 540.766 173.668H543.202C543.552 173.668 543.823 173.78 544.014 174.003C544.237 174.194 544.348 174.465 544.348 174.815V194.303C544.348 197.423 545.081 199.732 546.546 201.228C548.01 202.725 550.016 203.473 552.564 203.473C555.079 203.473 557.069 202.725 558.534 201.228C560.031 199.732 560.779 197.423 560.779 194.303V174.815C560.779 174.465 560.875 174.194 561.066 174.003C561.289 173.78 561.559 173.668 561.878 173.668H564.361C564.68 173.668 564.935 173.78 565.126 174.003C565.349 174.194 565.46 174.465 565.46 174.815V194.207C565.46 197.296 564.935 199.827 563.884 201.801C562.865 203.744 561.4 205.193 559.49 206.148C557.579 207.103 555.27 207.581 552.564 207.581Z","r":"t","e":false},{"d":"M493.763 207.581C490.993 207.581 488.668 207.167 486.789 206.339C484.911 205.479 483.462 204.38 482.443 203.043C481.456 201.674 480.93 200.225 480.867 198.696C480.867 198.442 480.962 198.219 481.153 198.028C481.376 197.805 481.631 197.693 481.918 197.693H484.353C484.736 197.693 485.022 197.789 485.213 197.98C485.404 198.171 485.532 198.394 485.595 198.649C485.755 199.413 486.137 200.177 486.742 200.941C487.379 201.674 488.254 202.295 489.369 202.804C490.515 203.282 491.98 203.521 493.763 203.521C496.501 203.521 498.508 203.043 499.781 202.088C501.087 201.101 501.74 199.795 501.74 198.171C501.74 197.057 501.389 196.165 500.689 195.496C500.02 194.796 498.985 194.175 497.584 193.633C496.183 193.092 494.368 192.503 492.139 191.866C489.814 191.197 487.888 190.465 486.36 189.669C484.831 188.873 483.685 187.886 482.921 186.708C482.188 185.529 481.822 184.033 481.822 182.218C481.822 180.498 482.284 178.97 483.207 177.632C484.131 176.263 485.452 175.181 487.172 174.385C488.923 173.588 491.04 173.19 493.524 173.19C495.498 173.19 497.218 173.461 498.683 174.002C500.179 174.512 501.421 175.212 502.408 176.104C503.395 176.964 504.144 177.903 504.653 178.922C505.163 179.909 505.433 180.88 505.465 181.836C505.465 182.059 505.386 182.282 505.226 182.504C505.067 182.695 504.812 182.791 504.462 182.791H501.931C501.708 182.791 501.469 182.727 501.214 182.6C500.991 182.473 500.816 182.234 500.689 181.883C500.498 180.578 499.765 179.479 498.492 178.588C497.218 177.696 495.562 177.25 493.524 177.25C491.454 177.25 489.767 177.648 488.461 178.444C487.187 179.241 486.551 180.482 486.551 182.17C486.551 183.253 486.853 184.16 487.458 184.893C488.063 185.593 489.018 186.214 490.324 186.755C491.63 187.297 493.333 187.87 495.435 188.475C497.982 189.175 500.068 189.924 501.692 190.72C503.316 191.484 504.51 192.455 505.274 193.633C506.07 194.78 506.468 196.26 506.468 198.075C506.468 200.082 505.943 201.801 504.892 203.234C503.841 204.635 502.36 205.718 500.45 206.482C498.571 207.214 496.342 207.581 493.763 207.581Z","r":"t","e":false},{"d":"M423.725 207.103C423.375 207.103 423.104 207.008 422.913 206.817C422.722 206.594 422.626 206.323 422.626 206.005V174.815C422.626 174.465 422.722 174.194 422.913 174.003C423.104 173.78 423.375 173.668 423.725 173.668H425.922C426.304 173.668 426.591 173.764 426.782 173.955C426.973 174.114 427.084 174.242 427.116 174.337L442.974 198.697V174.815C442.974 174.465 443.069 174.194 443.261 174.003C443.452 173.78 443.722 173.668 444.072 173.668H446.365C446.715 173.668 446.986 173.78 447.177 174.003C447.4 174.194 447.512 174.465 447.512 174.815V205.957C447.512 206.275 447.4 206.546 447.177 206.769C446.986 206.992 446.731 207.103 446.413 207.103H444.12C443.77 207.103 443.499 207.008 443.308 206.817C443.149 206.626 443.038 206.498 442.974 206.435L427.164 182.314V206.005C427.164 206.323 427.053 206.594 426.83 206.817C426.639 207.008 426.368 207.103 426.018 207.103H423.725Z","r":"t","e":false},{"d":"M375.065 207.581C372.358 207.581 370.034 207.119 368.091 206.195C366.149 205.24 364.652 203.791 363.602 201.849C362.551 199.875 361.962 197.407 361.834 194.445C361.803 193.044 361.787 191.707 361.787 190.433C361.787 189.128 361.803 187.774 361.834 186.373C361.962 183.444 362.567 181.008 363.649 179.065C364.764 177.091 366.292 175.626 368.235 174.671C370.209 173.684 372.486 173.19 375.065 173.19C377.676 173.19 379.953 173.684 381.895 174.671C383.87 175.626 385.414 177.091 386.528 179.065C387.643 181.008 388.248 183.444 388.343 186.373C388.407 187.774 388.439 189.128 388.439 190.433C388.439 191.707 388.407 193.044 388.343 194.445C388.248 197.407 387.659 199.875 386.576 201.849C385.525 203.791 384.029 205.24 382.086 206.195C380.144 207.119 377.803 207.581 375.065 207.581ZM375.065 203.521C377.517 203.521 379.507 202.788 381.036 201.323C382.596 199.859 383.44 197.486 383.567 194.207C383.631 192.774 383.663 191.5 383.663 190.385C383.663 189.239 383.631 187.965 383.567 186.564C383.503 184.367 383.089 182.584 382.325 181.215C381.593 179.846 380.606 178.843 379.364 178.206C378.122 177.569 376.689 177.25 375.065 177.25C373.505 177.25 372.104 177.569 370.862 178.206C369.62 178.843 368.617 179.846 367.853 181.215C367.12 182.584 366.706 184.367 366.611 186.564C366.579 187.965 366.563 189.239 366.563 190.385C366.563 191.5 366.579 192.774 366.611 194.207C366.738 197.486 367.582 199.859 369.142 201.323C370.703 202.788 372.677 203.521 375.065 203.521Z","r":"t","e":false},{"d":"M316.076 207.581C313.146 207.581 310.71 207.039 308.768 205.957C306.857 204.874 305.408 203.361 304.421 201.419C303.434 199.477 302.893 197.216 302.797 194.636C302.765 193.331 302.75 191.93 302.75 190.433C302.75 188.937 302.765 187.504 302.797 186.134C302.893 183.555 303.434 181.294 304.421 179.352C305.408 177.41 306.857 175.897 308.768 174.814C310.71 173.732 313.146 173.19 316.076 173.19C318.273 173.19 320.199 173.493 321.855 174.098C323.511 174.703 324.88 175.515 325.963 176.534C327.077 177.553 327.921 178.699 328.494 179.973C329.067 181.215 329.386 182.504 329.45 183.842C329.481 184.128 329.386 184.367 329.163 184.558C328.972 184.749 328.733 184.845 328.447 184.845H325.82C325.533 184.845 325.278 184.765 325.055 184.606C324.864 184.447 324.721 184.16 324.625 183.746C324.084 181.263 323.065 179.559 321.569 178.636C320.104 177.712 318.257 177.25 316.028 177.25C313.48 177.25 311.458 177.983 309.962 179.448C308.465 180.88 307.653 183.189 307.526 186.373C307.43 188.984 307.43 191.659 307.526 194.398C307.653 197.582 308.465 199.906 309.962 201.371C311.458 202.804 313.48 203.521 316.028 203.521C318.257 203.521 320.104 203.059 321.569 202.135C323.065 201.212 324.084 199.508 324.625 197.025C324.721 196.611 324.864 196.324 325.055 196.165C325.278 196.006 325.533 195.926 325.82 195.926H328.447C328.733 195.926 328.972 196.022 329.163 196.213C329.386 196.404 329.481 196.643 329.45 196.929C329.386 198.267 329.067 199.572 328.494 200.846C327.921 202.088 327.077 203.218 325.963 204.237C324.88 205.256 323.511 206.068 321.855 206.673C320.199 207.278 318.273 207.581 316.076 207.581Z","r":"t","e":false}];
+
+const PALETTES = [
+  {id:'current', name:'Current navy & sky', badge:'Current', primary:'#01487E', accent:'#439BD5', word:'#439BD5', tag:'#01487E', wordDark:'#5AB0E8',
+   why:'Navy says official and trustworthy. Sky blue says air travel. Safe, clear and already on-message.'},
+  {id:'gold', name:'Embassy navy & gold', badge:'Recommended', primary:'#0B2545', accent:'#C59D3F', word:'#0B2545', tag:'#8F6C1F', wordDark:'#D9B65C',
+   why:'Gold on deep navy looks established and premium, like a passport crest. Good for a high-end image.'},
+  {id:'green', name:'Navy & approval green', badge:'Recommended', primary:'#0B3A5B', accent:'#23A06A', word:'#23A06A', tag:'#0B3A5B', wordDark:'#3CC384',
+   why:'Green is the colour of approved and go. It adds a sense of success to navy’s trust.'},
+  {id:'teal', name:'Deep ocean teal', primary:'#0D4D5A', accent:'#1FA9A0', word:'#1A9A91', tag:'#0D4D5A', wordDark:'#3CCFC3',
+   why:'Calmer and more modern than navy. Feels fresh and international, and stands apart from all-blue competitors.'},
+  {id:'burgundy', name:'Passport burgundy & gold', primary:'#6B1E2E', accent:'#C9A24A', word:'#6B1E2E', tag:'#8E6F24', wordDark:'#DDBB66',
+   why:'Many passports are burgundy. Very distinctive and formal, but warmer, and the red family needs care.'},
+  {id:'orange', name:'Royal blue & sunrise orange', primary:'#14388F', accent:'#EE8420', word:'#E07A17', tag:'#14388F', wordDark:'#F7A247',
+   why:'Energetic and travel-led, like an airline. Friendlier and less formal. Suits visit-visa and tour work.'},
+  {id:'slate', name:'Charcoal & sky', primary:'#1E2A38', accent:'#2F9BDB', word:'#2F9BDB', tag:'#1E2A38', wordDark:'#5DB6EC',
+   why:'Near-black instead of navy. Sleek and corporate, keeps the travel blue.'},
+  {id:'aqua', group:'more', name:'Midnight navy & aqua', primary:'#062C4F', accent:'#12AFC4', word:'#0F9DB0', tag:'#062C4F', wordDark:'#3FD0E2',
+   why:'A brighter, cleaner take on your current blues. Aqua reads as sea and sky.'},
+  {id:'sapphire', group:'more', name:'Sapphire & silver', primary:'#0F3D7A', accent:'#8C9BAE', word:'#0F3D7A', tag:'#5E6E82', wordDark:'#C3CDD9',
+   why:'Blue with cool silver feels calm and corporate, like a bank. Quiet and very safe.'},
+  {id:'forest', group:'more', name:'Forest green & gold', primary:'#0F4D3A', accent:'#D2A63A', word:'#0F4D3A', tag:'#8C6B1C', wordDark:'#E2BE5F',
+   why:'Green as the main colour feels growth-minded. Gold keeps it premium. Stands out among blue rivals.'},
+  {id:'indigo', group:'more', name:'Indigo & amber', primary:'#272B6E', accent:'#F0AE2E', word:'#272B6E', tag:'#9A6A0C', wordDark:'#F6C35A',
+   why:'Indigo is serious but less common than navy. Amber adds warmth, like a boarding-pass highlight.'},
+  {id:'cobalt', group:'more', name:'Cobalt & mint', primary:'#1446A0', accent:'#2FBF9E', word:'#22A688', tag:'#1446A0', wordDark:'#4FD8B7',
+   why:'Bright and optimistic. Good if most of your clients are students and young professionals.'},
+  {id:'copper', group:'more', name:'Steel blue & copper', primary:'#21496B', accent:'#C46A35', word:'#B85F2C', tag:'#21496B', wordDark:'#E08A55',
+   why:'Muted blue with a warm copper accent. Grown-up and distinctive, suits family and settlement cases.'},
+  {id:'plum', group:'more', name:'Royal plum & gold', primary:'#3E1F5E', accent:'#D2A13F', word:'#3E1F5E', tag:'#8C6B1C', wordDark:'#E4BC62',
+   why:'Purple reads royal and luxurious. Memorable, but less expected for official paperwork.'},
+  {id:'cyan', group:'more', name:'Black & electric cyan', primary:'#0B1624', accent:'#13A9E0', word:'#0E95C7', tag:'#0B1624', wordDark:'#45C3F0',
+   why:'High contrast and tech-forward. Sharp on screens and social, a little less traditional.'},
+];
+
+const hexRe=/^#[0-9a-f]{6}$/i;
+const toRgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const toHex=a=>'#'+a.map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('').toUpperCase();
+const mix=(a,b,t)=>{const x=toRgb(a),y=toRgb(b);return toHex(x.map((v,i)=>v+(y[i]-v)*t))};
+const lum=h=>{const c=toRgb(h).map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+const contrast=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+
+function complete(p){
+  const q={...p};
+  q.word = q.word || (contrast(q.accent,'#FFFFFF')>=2.3 ? q.accent : q.primary);
+  q.tag = q.tag || q.primary;
+  if(!q.wordDark){let w=q.accent,n=0;while(contrast(w,q.primary)<3&&n<8){w=mix(w,'#FFFFFF',.18);n++}q.wordDark=w}
+  q.tint = mix(q.primary,'#FFFFFF',.93);
+  q.deep = mix(q.primary,'#000000',.28);
+  q.onA = contrast(q.accent,'#FFFFFF')>=2.6 ? '#FFFFFF' : mix(q.primary,'#000000',.35);
+  q.dBg = mix(q.primary,'#070A0F',.82);
+  q.dHero = mix(q.primary,'#070A0F',.68);
+  q.dCard = mix(q.primary,'#070A0F',.56);
+  q.dFoot = mix(q.primary,'#020306',.92);
+  return q;
+}
+function variant(p,v){
+  return v==='dark'
+    ? {mA:'#FFFFFF', mB:p.accent, k:p.primary, w:p.wordDark, t:'#FFFFFF'}
+    : {mA:p.primary, mB:p.accent, k:'#FFFFFF', w:p.word, t:p.tag};
+}
+const BOX={full:'0 0 881 242', mark:'0 0 242 242', word:'292 42 592 170'};
+function svg(c,kind){
+  const parts=PATHS.filter(x=>kind==='mark'?x.r[0]==='m':kind==='word'?x.r[0]!=='m':true)
+    .map(x=>`<path d="${x.d}"${x.e?' fill-rule="evenodd" clip-rule="evenodd"':''} fill="${c[x.r==='mA'?'mA':x.r==='mB'?'mB':x.r==='mk'?'k':x.r==='w'?'w':'t']}"/>`).join('');
+  return `<svg viewBox="${BOX[kind]}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shaizy Consultant logo">${parts}</svg>`;
+}
+function fileSvg(c){
+  return `<svg width="881" height="242" viewBox="0 0 881 242" fill="none" xmlns="http://www.w3.org/2000/svg">\n`+
+    PATHS.map(x=>`<path${x.e?' fill-rule="evenodd" clip-rule="evenodd"':''} d="${x.d}" fill="${c[x.r==='mA'?'mA':x.r==='mB'?'mB':x.r==='mk'?'k':x.r==='w'?'w':'t']}"/>`).join('\n')+'\n</svg>\n';
+}
+function renderLogos(root,p){
+  root.querySelectorAll('.lg').forEach(el=>{
+    const v=(el.dataset.v==='light'&&el.closest('.browser.dark .site'))?'dark':el.dataset.v;
+    const c=variant(p,v), k=el.dataset.k;
+    if(k==='stack'){
+      el.innerHTML=`<div style="display:grid;justify-items:center;gap:8%"><div style="width:34%">${svg(c,'mark')}</div><div style="width:100%">${svg(c,'word')}</div></div>`;
+    } else el.innerHTML=svg(c,k);
+  });
+}
+
+let current=complete(PALETTES[0]);
+let customPal=null;
+const stage=document.getElementById('stage');
+
+function apply(p){
+  current=p;
+  const s=stage.style;
+  s.setProperty('--p',p.primary);s.setProperty('--a',p.accent);s.setProperty('--w',p.word);s.setProperty('--t',p.tag);
+  s.setProperty('--wd',p.wordDark);s.setProperty('--tint',p.tint);s.setProperty('--deep',p.deep);
+  s.setProperty('--on-a',p.onA);s.setProperty('--d-bg',p.dBg);s.setProperty('--d-hero',p.dHero);s.setProperty('--d-card',p.dCard);s.setProperty('--d-foot',p.dFoot);
+  renderLogos(stage,p);
+  document.getElementById('curName').textContent=p.name;
+  const sw=[['Main',p.primary],['Accent',p.accent],['Light tint',p.tint],['Dark shade',p.deep]];
+  if(p.word!==p.accent&&p.word!==p.primary) sw.splice(2,0,['Wordmark',p.word]);
+  document.getElementById('hexes').innerHTML=sw.map(([n,h])=>`<button class="hex" type="button" data-hex="${h}" title="Copy ${h}"><i style="background:${h}"></i>${h}<small>${n}</small></button>`).join('');
+  document.querySelectorAll('.pal').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.id===p.id)));
+  try{localStorage.setItem('shaizy-pal',p.id==='custom'?JSON.stringify({primary:p.primary,accent:p.accent}):p.id)}catch(e){}
+}
+
+function palCard(p){
+  const b=document.createElement('button');
+  b.type='button';b.className='pal';b.dataset.id=p.id;b.setAttribute('aria-pressed','false');
+  b.innerHTML=`<div class="pal-head"><span class="pal-name">${p.name}</span>${p.badge?`<span class="badge${p.badge==='Recommended'?' rec':''}">${p.badge}</span>`:''}</div>
+    <div class="pal-strip"><div style="background:#fff">${svg(variant(p,'light'),'full')}</div><div style="background:${p.primary}">${svg(variant(p,'dark'),'full')}</div></div>
+    <p class="pal-why">${p.why}</p>`;
+  b.addEventListener('click',()=>apply(p));
+  return b;
+}
+const pals=document.getElementById('pals');
+const ALL=PALETTES.map(complete);
+ALL.forEach((p,i)=>{
+  if(p.group==='more'&&ALL[i-1].group!=='more'){const l=document.createElement('p');l.className='label';l.textContent='More palettes';pals.appendChild(l)}
+  pals.appendChild(palCard(p));
+});
+
+// website light / dark
+const siteWrap=document.getElementById('siteWrap'),siteMain=document.getElementById('siteMain');
+let siteClone=null;
+function setSite(mode){
+  if(mode==='both'){
+    if(!siteClone){siteClone=siteMain.cloneNode(true);siteClone.id='siteClone';siteClone.setAttribute('aria-label','Website in dark mode');siteWrap.appendChild(siteClone)}
+    siteClone.hidden=false;siteClone.classList.add('dark');siteMain.classList.remove('dark');siteWrap.classList.add('two');
+  } else {
+    if(siteClone) siteClone.hidden=true;
+    siteWrap.classList.remove('two');siteMain.classList.toggle('dark',mode==='dark');
+  }
+  document.querySelectorAll('[data-site]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.site===mode)));
+  renderLogos(siteWrap,current);
+  try{localStorage.setItem('shaizy-site',mode)}catch(e){}
+}
+document.querySelectorAll('[data-site]').forEach(b=>b.addEventListener('click',()=>setSite(b.dataset.site)));
+
+// custom colours
+const cp=document.getElementById('cp'),ca=document.getElementById('ca'),cpt=document.getElementById('cpt'),cat=document.getElementById('cat');
+function buildCustom(){
+  const primary=cp.value.toUpperCase(), accent=ca.value.toUpperCase();
+  return complete({id:'custom',name:'Your colours',primary,accent,why:''});
+}
+function syncCustom(){ if(current.id==='custom') apply(buildCustom()); }
+[[cp,cpt],[ca,cat]].forEach(([c,t])=>{
+  c.addEventListener('input',()=>{t.value=c.value.toUpperCase();syncCustom()});
+  t.addEventListener('input',()=>{let v=t.value.trim();if(v[0]!=='#')v='#'+v;if(hexRe.test(v)){c.value=v;syncCustom()}});
+});
+document.getElementById('useCustom').addEventListener('click',()=>apply(buildCustom()));
+
+// copy
+const toast=document.getElementById('toast');let tt;
+function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1800)}
+async function copy(text,label){
+  try{await navigator.clipboard.writeText(text);say(label+' copied')}
+  catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');say(label+' copied')}catch(_){say('Copy blocked. Select the text manually.')}ta.remove()}
+}
+document.addEventListener('click',e=>{
+  const h=e.target.closest('[data-hex]'); if(h){copy(h.dataset.hex,h.dataset.hex);return}
+  const c=e.target.closest('[data-copy]'); if(c){copy(fileSvg(variant(current,c.dataset.copy)),c.dataset.copy==='dark'?'Dark logo SVG':'Light logo SVG')}
+});
+
+// restore last choice
+let start=ALL[0];
+try{const s=localStorage.getItem('shaizy-pal');if(s){if(s[0]==='{'){const o=JSON.parse(s);if(hexRe.test(o.primary)&&hexRe.test(o.accent)){cp.value=cpt.value=o.primary;ca.value=cat.value=o.accent;start=buildCustom()}}else start=ALL.find(p=>p.id===s)||start}}catch(e){}
+apply(start);
+try{const m=localStorage.getItem('shaizy-site');if(m==='dark'||m==='both')setSite(m)}catch(e){}
+</script>
+</body>
+</html>
